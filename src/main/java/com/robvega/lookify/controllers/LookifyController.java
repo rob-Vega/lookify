@@ -11,10 +11,15 @@ import com.robvega.lookify.services.LookifyService;
 
 @Controller
 public class LookifyController {
-	private final LookifyService lookifyService;
 	
+	private final LookifyService lookifyService;
 	public LookifyController(LookifyService lookifyService) {
 		this.lookifyService = lookifyService;
+	}
+	
+	@GetMapping("/")
+	public String root() {
+		return "redirect:/index";
 	}
 
 	@GetMapping("/index")
