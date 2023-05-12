@@ -10,4 +10,6 @@ import com.robvega.lookify.models.Lookify;
 @Repository
 public interface LookifyRepository extends CrudRepository<Lookify, Long> {
 	List<Lookify> findAll();
+	
+	List<Lookify> findTop10ByOrderByRatingDesc();
 }

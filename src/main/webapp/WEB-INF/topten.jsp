@@ -11,14 +11,26 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Lookify</title>
+    <title> Top Ten Songs</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Welcome to Lookify!</h1>
-   <a href="/dashboard">Start Looking!</a>	
+
+<div class="container">
+		<div class="top1">
+			<h2 class="left">Top Ten Songs:</h2>
+			<a href="/dashboard">Dashboard</a>
+		</div>
+		<ul>
+			<c:forEach items="${topten}" var="song">
+				<li>
+					<h2><c:out value="${song.rating}"/> - <a href="/songs/${song.id}"><c:out value="${song.title}"/></a> - <c:out value="${song.artistName}"/></h2>
+				</li>
+			</c:forEach>
+		</ul>
+	</div>
 </body>
 </html>
