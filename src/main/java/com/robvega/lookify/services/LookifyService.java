@@ -9,13 +9,23 @@ import com.robvega.lookify.repositories.LookifyRepository;
 
 @Service
 public class LookifyService {
-	private final LookifyRepository lookifyRepository;
 	
+	private final LookifyRepository lookifyRepository;
 	public LookifyService(LookifyRepository lookifyRepository) {
 		this.lookifyRepository = lookifyRepository;
 	}
 
+	
+	
 	public List<Lookify> findAll() {
 		return lookifyRepository.findAll();
 	}
+	
+	public void nuevaSong(Lookify song){
+		lookifyRepository.save(song);
+	}
+	
+	public List<Lookify> cancionesTopDiez(){
+		return lookifyRepository.findTop10ByOrderByRatingDesc();
+		}
 }
