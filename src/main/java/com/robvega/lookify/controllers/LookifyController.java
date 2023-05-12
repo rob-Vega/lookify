@@ -2,7 +2,6 @@ package com.robvega.lookify.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +11,8 @@ import com.robvega.lookify.services.LookifyService;
 
 @Controller
 public class LookifyController {
-	private LookifyService lookifyService;
-
+	private final LookifyService lookifyService;
+	
 	public LookifyController(LookifyService lookifyService) {
 		this.lookifyService = lookifyService;
 	}

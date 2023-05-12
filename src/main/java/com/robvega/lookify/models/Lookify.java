@@ -38,7 +38,6 @@ public class Lookify {
     public Lookify () { }
 
 	public Lookify(String title, String artistName, Integer rating) {
-		super();
 		this.title = title;
 		this.artistName = artistName;
 		this.rating = rating;
