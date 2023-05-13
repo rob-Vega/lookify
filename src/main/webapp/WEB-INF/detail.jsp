@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Search</title>
+<title>Details</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
@@ -21,25 +21,29 @@
 <!-- change to match your file/naming structure -->
 </head>
 <body>
-	<div class="container mt-5">
-		<div style="
-    display: flex;
-    justify-content: space-between">
-			<h2>Top Ten Songs:</h2>
+	<main class="container mt-5">
+		<div style="display: flex; justify-content: end;">
 			<a href="/dashboard">Dashboard</a>
 		</div>
-		<ul class="list-unstyled border border-1 rounded p-2 mt-3">
-			<c:forEach items="${topTen}" var="song">
-				<li class="my-3">
-					<h5>
-						<c:out value="${song.rating}" />
-						- <a href="/songs/${song.id}"> <c:out value="${song.title}" /></a>
-						-
-						<c:out value="${song.artist}" />
-					</h5>
-				</li>
-			</c:forEach>
-		</ul>
-	</div>
+		<div class="border border-1 rounded p-2 row mt-5 gy-3">
+			<h5 class="col-4">Title:</h5>
+			<h5 class="col-8">
+				<c:out value="${song.title}" />
+			</h5>
+			<h5 class="col-4">Artist:</h5>
+			<h5 class="col-8">
+				<c:out value="${song.artist}" />
+			</h5>
+			<h5 class="col-4">Rating:</h5>
+			<h5 class="col-8">
+				<c:out value="${song.rating}" />
+			</h5>
+			<form class="my-3" action="/delete/${song.id}" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<button class="btn btn-danger float-end">Delete</button>
+			</form>
+		</div>
+	</main>
 </body>
 </html>
+

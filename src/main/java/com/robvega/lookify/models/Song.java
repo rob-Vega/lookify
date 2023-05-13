@@ -14,20 +14,22 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="lookify")
-public class Lookify {
+public class Song {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(min = 5, max = 20)
+	@Size(min = 1, max = 20)
 	private String title;
-	@Size(min = 5, max = 20)
-	private String artistName;
-	@Min(1)
-	@Max(10)
+	@Size(min = 1, max = 20)
+	private String artist;
+	@Min(value = 1)
+	@Max(value= 10)
+	@NotNull(message = "El campo no puede ser nulo")
 	private Integer rating;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -35,11 +37,11 @@ public class Lookify {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
-    public Lookify () { }
+    public Song () { }
 
-	public Lookify(String title, String artistName, Integer rating) {
+	public Song(String title, String artistName, Integer rating) {
 		this.title = title;
-		this.artistName = artistName;
+		this.artist = artistName;
 		this.rating = rating;
 	}
 
@@ -59,12 +61,12 @@ public class Lookify {
 		this.title = title;
 	}
 
-	public String getArtistName() {
-		return artistName;
+	public String getArtist() {
+		return artist;
 	}
 
-	public void setArtistName(String artistName) {
-		this.artistName = artistName;
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
 	public Integer getRating() {

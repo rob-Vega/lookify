@@ -18,7 +18,15 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Welcome to Lookify!</h1>
-   <a href="/dashboard">Start Looking!</a>	
+   <main class="container" style="
+	    height: 100vh;
+	    align-items: center;
+	    justify-content: center;
+	    display: flex;
+	    flex-direction: column;
+	">
+	   	<h1>Welcome to Lookify!</h1>
+	   	<a href="/dashboard">Start Looking!</a>	
+   </main>
 </body>
 </html>

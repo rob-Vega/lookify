@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lookify!</title>
+<title>Search</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 <!-- change to match your file/naming structure -->
@@ -23,12 +23,11 @@
 <body>
 	<main class="container justify-content-center mt-5">
 		<div class="row" style="display: flex; justify-content: space-between">
-			<a class="col-2" href="/songs/new">Add new</a> <a class="col-2"
-				href="/search/topTen"> Top Songs</a>
+			<h5 class="col-6">Song by artists: <c:out value="${q}"/></h5>
 			<form class="col-6" action="/search" method="get">
 				<div class="input-group">
 					<input type="text" class="form-control" name="q">
-					<button type="submit" class="btn btn-primary" type="button">Search Artist</button>
+					<button type="submit" class="btn btn-primary" type="button">New Search</button>
 				</div>
 			</form>
 		</div>
